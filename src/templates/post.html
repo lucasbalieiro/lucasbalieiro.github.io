@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block content %}
+<article>
+    <header>
+        <h1>{{ title }}</h1>
+        <p class="date">{{ date }}</p>
+    </header>
+    <div class="content">
+        {{ content | safe }}
+    </div>
+    {% if tags %}
+    <div class="post-tags">
+        <span class="tags-label">Tags:</span>
+        {% for tag in tags %}
+        <a href="/blog/tags/{{ tag }}/" class="tag">{{ tag }}</a>{% if not forloop.last %}, {% endif %}
+        {% endfor %}
+    </div>
+    {% endif %}
+</article>
+{% endblock content %}

@@ -1,0 +1,13 @@
+[package]
+name = "lucasbalieiro"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+pulldown-cmark = "0.13"
+tera = "1.20"
+matter = "0.1.0-alpha4"
+walkdir = "2.5"
+serde = { version = "1.0", features = ["derive"] }
+toml = "0.8"
+regex = "1.12"

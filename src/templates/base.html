@@ -1,0 +1,31 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{{ title }} | lucasbalieiro.dev</title>
+    <link rel="stylesheet" type="text/css" href="/style.css" />
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="/">Home</a>
+            <a href="/blog/">Blog</a>
+        </nav>
+    </header>
+    {% if image %}
+    <figure class="banner-image">
+        <img src="{{ image }}" alt="{{ title }}" />
+        {% if image_caption %}
+        <figcaption>{{ image_caption }}</figcaption>
+        {% endif %}
+    </figure>
+    {% endif %}
+    <main>
+        {% block content %}{% endblock content %}
+    </main>
+    <footer>
+        <p>&copy; 2026 lucasbalieiro.dev</p>
+    </footer>
+</body>
+</html>

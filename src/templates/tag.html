@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Tag: {{ tag }}</h1>
+
+<ul class="post-list">
+{% for post in posts %}
+    <li>
+        <span class="post-date">{{ post.date }}</span>
+        <a href="{{ post.path }}">{{ post.title }}</a>
+    </li>
+{% endfor %}
+</ul>
+{% endblock content %}
