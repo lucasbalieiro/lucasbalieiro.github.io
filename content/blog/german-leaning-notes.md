@@ -13,9 +13,15 @@ These are personal notes of things I'm learning in `Deutsch`. Beware that this i
     * feminine:  die Frau
     * neuter: das Mädchen
     * plural: die Männer, die Frauen, die Mädchen
+    * I could not find a pattern that I can do an educated guess if the gender of the noun is male or female. Maybe the best strategy is just memoize the gender when I learn about the noun.
 
 * another pattern seems that when you add `-in` to a noun, it turns into feminine.
     * der Kollege - die Kolleg*in*
     * der Freund - die Freund*in*
 
+* indefinite articles
+    * indefinite: ein (masculine), eine (feminine)
 
+* plural
+    * die
+    * none if indefinite
