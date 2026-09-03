@@ -209,3 +209,82 @@ img {
     font-style: italic;
     margin-top: 0.5rem;
 }
+
+/* Tables — generated via pulldown-cmark ENABLE_TABLES (src/main.rs:168) */
+.content table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5rem 0;
+    font-size: 0.9em;
+    line-height: 1.5;
+}
+
+.content th,
+.content td {
+    border: 1px solid #333;
+    padding: 0.6rem 0.8rem;
+    text-align: left;
+    vertical-align: top;
+}
+
+.content thead th {
+    background: #2a2a2a;
+    color: #fff;
+    font-weight: 600;
+    border-bottom: 2px solid #444;
+    white-space: nowrap;
+}
+
+.content tbody tr:nth-child(even) {
+    background: #222;
+}
+
+.content tbody tr:hover {
+    background: #2a2a2a;
+}
+
+.content td code {
+    background: #333;
+    padding: 0.15rem 0.3rem;
+}
+
+/* Wrapper for horizontal scroll — injected by wrap_tables_with_wrapper() in src/main.rs */
+.table-wrapper {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    margin: 1.5rem 0;
+    border: 1px solid #333;
+    border-radius: 5px;
+}
+
+.table-wrapper table {
+    margin: 0;
+    border: 0;
+}
+
+.table-wrapper th:first-child,
+.table-wrapper td:first-child {
+    border-left: 0;
+}
+
+.table-wrapper th:last-child,
+.table-wrapper td:last-child {
+    border-right: 0;
+}
+
+/* Blockquote tables (e.g. naive-...md inside quote) slightly smaller */
+blockquote table {
+    font-size: 0.85em;
+    margin: 1rem 0;
+}
+
+@media (max-width: 600px) {
+    .content table {
+        font-size: 0.85em;
+    }
+
+    .content th,
+    .content td {
+        padding: 0.5rem 0.6rem;
+    }
+}

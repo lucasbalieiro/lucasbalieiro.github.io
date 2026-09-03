@@ -175,6 +175,7 @@ fn process_md_file(
     html::push_html(&mut html_output, parser);
 
     html_output = wrap_images_with_figcaption(&html_output);
+    html_output = wrap_tables_with_wrapper(&html_output);
 
     let rel_path = file_path.strip_prefix(content_dir)?;
 
@@ -321,4 +322,12 @@ fn wrap_images_with_figcaption(html: &str) -> String {
             before_title, title, after_title, title
         )
     }).to_string()
+}
+
+fn wrap_tables_with_wrapper(html: &str) -> String {
+    let re = regex::Regex::new(r"(?s)<table.*?</table>").unwrap();
+    re.replace_all(html, |caps: &regex::Captures| {
+        format!(r#"<div class="table-wrapper">{}</div>"#, &caps[0])
+    })
+    .to_string()
 }
