@@ -1,5 +1,5 @@
 <!doctype html>
-<html>
+<html lang="en">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -9,8 +9,8 @@
 <body>
     <header>
         <nav>
-            <a href="/">Home</a>
-            <a href="/blog/">Blog</a>
+            <a href="/">home</a>
+            <a href="/blog/">blog</a>
         </nav>
     </header>
     {% if image %}
@@ -25,7 +25,24 @@
         {% block content %}{% endblock content %}
     </main>
     <footer>
+        <div class="sponsors">
+            <span class="sponsors-label">the folks who keep me out of a real job:</span>
+            <div class="sponsor-logos">
+                <a href="https://vinteum.org" target="_blank" rel="noopener noreferrer">
+                    <img src="/images/vinteum.svg" alt="Vinteum" class="sponsor-logo" />
+                </a>
+                <a href="https://opensats.org" target="_blank" rel="noopener noreferrer">
+                    <img src="/images/opensats.svg" alt="OpenSats" class="sponsor-logo" />
+                </a>
+                <a href="https://stratumprotocol.org" target="_blank" rel="noopener noreferrer">
+                    <img src="/images/stratumprotocol.png" alt="Stratum Protocol" class="sponsor-logo" />
+                </a>
+            </div>
+        </div>
         <p>&copy; 2026 lucasbalieiro.dev</p>
+        <p style="margin-top: 0.8rem; font-size: 0.75rem; color: #333;">
+            design inspired by <a href="https://owickstrom.github.io/the-monospace-web/" style="color: #444; text-decoration: none;">the monospace web</a>
+        </p>
     </footer>
 </body>
 </html>
