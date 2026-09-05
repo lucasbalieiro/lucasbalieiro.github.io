@@ -1,3 +1,7 @@
+/* ═══════════════════════════════════════════════════════════════
+   Inspired by The Monospace Web (owickstrom.github.io/the-monospace-web/)
+   ═══════════════════════════════════════════════════════════════ */
+
 * {
     box-sizing: border-box;
     margin: 0;
@@ -5,30 +9,43 @@
 }
 
 body {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, sans-serif;
-    line-height: 1.6;
-    max-width: 700px;
+    font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+    line-height: 1.7;
+    max-width: 72ch;
     margin: 0 auto;
-    padding: 1rem;
-    background: #1a1a1a;
-    color: #e0e0e0;
+    padding: 2rem 1.5rem;
+    background: #0d0d0d;
+    color: #c8c8c8;
 }
 
 header {
-    padding: 1rem 0;
-    border-bottom: 1px solid #333;
+    padding: 1rem 0 1.5rem;
     margin-bottom: 2rem;
 }
 
+nav {
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+}
+
+nav::before {
+    content: "~";
+    color: #555;
+}
+
 nav a {
-    margin-right: 1rem;
     text-decoration: none;
-    color: #e0e0e0;
-    font-weight: 500;
+    color: #c8c8c8;
+    font-weight: 400;
 }
 
 nav a:hover {
-    color: #888;
+    color: #fff;
+}
+
+nav a::before {
+    content: "/";
 }
 
 main {
@@ -36,181 +53,180 @@ main {
 }
 
 footer {
-    border-top: 1px solid #333;
-    margin-top: 3rem;
-    padding-top: 1rem;
+    margin-top: 4rem;
+    padding: 1.5rem 0;
+    border-top: 1px solid #2a2a2a;
     text-align: center;
-    color: #666;
-    font-size: 0.9rem;
+    color: #555;
+    font-size: 0.8rem;
 }
+
+footer p {
+    margin: 0.4rem 0;
+}
+
+.sponsors {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0.8rem;
+    margin-bottom: 1.2rem;
+}
+
+.sponsors-label {
+    color: #333;
+    font-size: 0.75rem;
+    text-transform: lowercase;
+}
+
+.sponsor-logos {
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+}
+
+.sponsor-logo {
+    height: 20px;
+    width: auto;
+    opacity: 0.5;
+    transition: opacity 0.2s;
+    filter: grayscale(100%);
+}
+
+.sponsor-logo:hover {
+    opacity: 1;
+    filter: grayscale(0%);
+}
+
+
+
+/* ── Headings ─────────────────────────────────────────────────── */
 
 h1, h2, h3, h4, h5, h6 {
-    margin: 1.5rem 0 1rem;
-    font-weight: 600;
-    color: #fff;
+    margin: 2rem 0 1rem;
+    font-weight: 400;
+    color: #e8e8e8;
 }
 
-h1 { font-size: 2rem; }
-h2 { font-size: 1.5rem; }
-h3 { font-size: 1.25rem; }
+h1 {
+    font-size: 1.4rem;
+    letter-spacing: 0.02em;
+}
 
-p { margin: 1rem 0; }
+h2 {
+    font-size: 1.15rem;
+    padding-bottom: 0.3rem;
+    border-bottom: 1px solid #222;
+}
 
-ul, ol {
+h3 {
+    font-size: 1rem;
+    color: #bbb;
+}
+
+h4, h5, h6 {
+    font-size: 0.95rem;
+    color: #999;
+}
+
+/* ── Body text ────────────────────────────────────────────────── */
+
+p {
     margin: 1rem 0;
-    padding-left: 2rem;
-}
-
-li {
-    margin: 0.5rem 0;
-}
-
-ul ul, ol ul, ul ol, ol ol {
-    margin: 0.25rem 0;
 }
 
 a {
-    color: #e0e0e0;
+    color: #c8c8c8;
     text-decoration: underline;
+    text-decoration-color: #444;
+    text-underline-offset: 3px;
 }
 
 a:hover {
-    color: #888;
+    color: #fff;
+    text-decoration-color: #888;
 }
 
+ul, ol {
+    margin: 1rem 0;
+    padding-left: 1.5rem;
+}
+
+li {
+    margin: 0.4rem 0;
+}
+
+ul ul, ol ul, ul ol, ol ol {
+    margin: 0.2rem 0;
+}
+
+li::marker {
+    color: #555;
+}
+
+hr {
+    border: none;
+    text-align: center;
+    margin: 2rem 0;
+    color: #333;
+    overflow: visible;
+}
+
+hr::after {
+    content: "══════════════";
+    color: #2a2a2a;
+    font-size: 0.8rem;
+}
+
+strong {
+    color: #e0e0e0;
+    font-weight: 600;
+}
+
+em {
+    color: #aaa;
+}
+
+/* ── Code ─────────────────────────────────────────────────────── */
+
 code {
-    background: #2a2a2a;
-    padding: 0.2rem 0.4rem;
-    border-radius: 3px;
-    font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+    background: #1a1a1a;
+    padding: 0.15rem 0.4rem;
+    border: 1px solid #222;
     font-size: 0.9em;
 }
 
 pre {
-    background: #2a2a2a;
-    padding: 1rem;
+    background: #111;
+    border: 1px solid #222;
+    padding: 1rem 1.2rem;
     overflow-x: auto;
-    border-radius: 5px;
-    margin: 1rem 0;
+    margin: 1.5rem 0;
+    line-height: 1.5;
 }
 
 pre code {
     background: none;
+    border: none;
     padding: 0;
 }
+
+/* ── Blockquotes ──────────────────────────────────────────────── */
 
 blockquote {
-    border-left: 4px solid #333;
-    padding-left: 1rem;
-    margin: 1rem 0;
-    color: #888;
+    border-left: 3px solid #333;
+    padding: 0.5rem 0 0.5rem 1rem;
+    margin: 1.5rem 0;
+    color: #777;
 }
 
-img {
-    max-width: 100%;
-    height: auto;
+blockquote p {
+    margin: 0.5rem 0;
 }
 
-.post-list {
-    list-style: none;
-    padding: 0;
-}
+/* ── Tables ───────────────────────────────────────────────────── */
 
-.post-list li {
-    padding: 0.5rem 0;
-    display: flex;
-    gap: 1rem;
-}
-
-.post-date {
-    color: #666;
-    font-size: 0.9rem;
-    min-width: 100px;
-}
-
-.date {
-    color: #666;
-    font-size: 0.9rem;
-}
-
-@media (max-width: 600px) {
-    body {
-        padding: 0.5rem;
-    }
-
-    .post-list li {
-        flex-direction: column;
-        gap: 0.25rem;
-    }
-}
-
-.tags {
-    display: block;
-    margin-top: 0.25rem;
-}
-
-.tag {
-    font-size: 0.85rem;
-    color: #888;
-    text-decoration: none;
-    margin-right: 0.5rem;
-}
-
-.tag:hover {
-    color: #aaa;
-    text-decoration: underline;
-}
-
-.post-tags {
-    margin-top: 2rem;
-    padding-top: 1rem;
-    border-top: 1px solid #333;
-}
-
-.tags-label {
-    color: #666;
-    margin-right: 0.5rem;
-}
-
-.banner-image {
-    display: block;
-    margin: 1rem auto;
-    text-align: center;
-    max-width: 100%;
-}
-
-.banner-image img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 4px;
-}
-
-.banner-image figcaption {
-    font-size: 0.85rem;
-    color: #888;
-    font-style: italic;
-    margin-top: 0.5rem;
-}
-
-.inline-image {
-    display: block;
-    margin: 1rem auto;
-    text-align: center;
-}
-
-.inline-image img {
-    display: block;
-    margin: 0 auto;
-}
-
-.inline-image figcaption {
-    font-size: 0.85rem;
-    color: #888;
-    font-style: italic;
-    margin-top: 0.5rem;
-}
-
-/* Tables — generated via pulldown-cmark ENABLE_TABLES (src/main.rs:168) */
 .content table {
     width: 100%;
     border-collapse: collapse;
@@ -221,40 +237,39 @@ img {
 
 .content th,
 .content td {
-    border: 1px solid #333;
-    padding: 0.6rem 0.8rem;
+    border: 1px solid #222;
+    padding: 0.5rem 0.7rem;
     text-align: left;
     vertical-align: top;
 }
 
 .content thead th {
-    background: #2a2a2a;
-    color: #fff;
+    background: #151515;
+    color: #ddd;
     font-weight: 600;
-    border-bottom: 2px solid #444;
+    border-bottom: 2px solid #333;
     white-space: nowrap;
 }
 
 .content tbody tr:nth-child(even) {
-    background: #222;
+    background: #111;
 }
 
 .content tbody tr:hover {
-    background: #2a2a2a;
+    background: #1a1a1a;
 }
 
 .content td code {
-    background: #333;
-    padding: 0.15rem 0.3rem;
+    background: #1a1a1a;
+    border-color: #2a2a2a;
+    padding: 0.1rem 0.3rem;
 }
 
-/* Wrapper for horizontal scroll — injected by wrap_tables_with_wrapper() in src/main.rs */
 .table-wrapper {
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
     margin: 1.5rem 0;
-    border: 1px solid #333;
-    border-radius: 5px;
+    border: 1px solid #222;
 }
 
 .table-wrapper table {
@@ -272,19 +287,153 @@ img {
     border-right: 0;
 }
 
-/* Blockquote tables (e.g. naive-...md inside quote) slightly smaller */
 blockquote table {
     font-size: 0.85em;
     margin: 1rem 0;
 }
 
+/* ── Images ───────────────────────────────────────────────────── */
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+.banner-image {
+    display: block;
+    margin: 0 auto 2rem;
+    text-align: center;
+    max-width: 100%;
+}
+
+.banner-image img {
+    max-width: 100%;
+    height: auto;
+    border: 1px solid #222;
+}
+
+.banner-image figcaption {
+    font-size: 0.8rem;
+    color: #555;
+    font-style: italic;
+    margin-top: 0.5rem;
+}
+
+.inline-image {
+    display: block;
+    margin: 1.5rem auto;
+    text-align: center;
+}
+
+.inline-image img {
+    display: block;
+    margin: 0 auto;
+}
+
+.inline-image figcaption {
+    font-size: 0.8rem;
+    color: #555;
+    font-style: italic;
+    margin-top: 0.5rem;
+}
+
+/* ── Blog post list ───────────────────────────────────────────── */
+
+.post-list {
+    list-style: none;
+    padding: 0;
+}
+
+.post-list li {
+    padding: 0.6rem 0;
+    display: flex;
+    gap: 1rem;
+    align-items: baseline;
+}
+
+.post-list li::before {
+    content: ">";
+    color: #333;
+}
+
+.post-date {
+    color: #555;
+    font-size: 0.85rem;
+    min-width: 10ch;
+}
+
+.date {
+    color: #555;
+    font-size: 0.85rem;
+}
+
+/* ── Tags ─────────────────────────────────────────────────────── */
+
+.tags {
+    display: block;
+    margin-top: 0.2rem;
+}
+
+.tag {
+    font-size: 0.8rem;
+    color: #555;
+    text-decoration: none;
+    margin-right: 0.5rem;
+}
+
+.tag:hover {
+    color: #aaa;
+    text-decoration: underline;
+}
+
+.post-tags {
+    margin-top: 2rem;
+    padding-top: 1rem;
+    border-top: 1px solid #222;
+}
+
+.tags-label {
+    color: #444;
+    margin-right: 0.5rem;
+}
+
+/* ── Details / Summary ────────────────────────────────────────── */
+
+details {
+    margin: 1rem 0;
+    padding: 0.5rem 0;
+}
+
+summary {
+    cursor: pointer;
+    color: #888;
+}
+
+summary:hover {
+    color: #ccc;
+}
+
+/* ── Responsive ───────────────────────────────────────────────── */
+
 @media (max-width: 600px) {
-    .content table {
-        font-size: 0.85em;
+    body {
+        padding: 1rem;
     }
 
-    .content th,
-    .content td {
-        padding: 0.5rem 0.6rem;
+    .post-list li {
+        flex-direction: column;
+        gap: 0.15rem;
+        padding-left: 0.5rem;
+    }
+
+    .post-list li::before {
+        content: ">";
+        position: absolute;
+        left: 0;
+    }
+
+    .post-list li {
+        padding-left: 1.2rem;
+        position: relative;
     }
 }
