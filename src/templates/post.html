@@ -6,6 +6,12 @@
         <h1>{{ title }}</h1>
         <p class="date">{{ date }}</p>
     </header>
+    <nav class="post-toc" id="post-toc" aria-label="table of contents">
+        <details open>
+            <summary>contents</summary>
+            <ul id="post-toc-list"></ul>
+        </details>
+    </nav>
     <div class="content">
         {{ content | safe }}
     </div>
@@ -18,4 +24,47 @@
     </div>
     {% endif %}
 </article>
+
+<script>
+(function () {
+    var list = document.getElementById('post-toc-list');
+    var content = document.querySelector('.content');
+    if (!list || !content) return;
+
+    var headings = content.querySelectorAll('h2, h3, h4');
+    if (headings.length === 0) {
+        document.getElementById('post-toc').style.display = 'none';
+        return;
+    }
+
+    headings.forEach(function (heading) {
+        if (!heading.id) {
+            heading.id = heading.textContent
+                .toLowerCase()
+                .replace(/[^a-z0-9]+/g, '-')
+                .replace(/(^-|-$)/g, '');
+        }
+        var li = document.createElement('li');
+        li.className = 'toc-' + heading.tagName.toLowerCase();
+        var a = document.createElement('a');
+        a.href = '#' + heading.id;
+        a.textContent = heading.textContent;
+        li.appendChild(a);
+        list.appendChild(li);
+
+        heading.addEventListener('click', function () {
+            history.pushState(null, '', '#' + heading.id);
+        });
+    });
+
+    if (location.hash) {
+        var target = document.getElementById(location.hash.slice(1));
+        if (target) {
+            setTimeout(function () {
+                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }, 100);
+        }
+    }
+})();
+</script>
 {% endblock content %}
